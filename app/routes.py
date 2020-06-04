@@ -213,7 +213,7 @@ def check_date(cur):
 @login_required
 def schedule_stud(cur_week):
     if current_user.priority == 'Студент':
-        cur_week = datetime.combine(check_date(cur_week), time(0, 0))
+        cur_week = check_date(cur_week)
         dates = cur_week - timedelta(days=cur_week.weekday())
         d = dict(zip(range(5),('Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница')))
         list_zan = []
@@ -242,7 +242,7 @@ def schedule_stud(cur_week):
 @login_required
 def schedule_prepod(cur_week):
     if current_user.priority == 'Преподаватель':
-        cur_week = datetime.combine(check_date(cur_week), time(0, 0))
+        cur_week = check_date(cur_week)
         dates = cur_week - timedelta(days=cur_week.weekday())
         d = dict(zip(range(5), ('Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница')))
         list_zan = []
