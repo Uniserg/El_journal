@@ -135,7 +135,8 @@ def grades(group):
             dz_now = dz[0].dz
         zan = sorted(filter(lambda x: group in x.groups, Schedule.query.filter_by(prepod_id=current_user.id).all()), key=lambda x: x.date)
         d = dict(zip(map(lambda x: x.id, students_of_group),
-                     (dict(zip(map(lambda x: x.date.date(), zan), map(lambda x: {}, zan))) for _ in range(len(students_of_group)))))
+                     (dict(zip(map(lambda x: x.date.date(), zan),
+                               map(lambda x: {}, zan))) for _ in range(len(students_of_group)))))
 
         for i in students_of_group:
             for j in zan:
@@ -203,6 +204,8 @@ def get_grade():
                 db.session.delete(cur_grade)
         db.session.commit()
         return str(round(summa, 3))
+    else:
+        return redirect(url_for('journal'))
 
 
 def check_date(cur):
