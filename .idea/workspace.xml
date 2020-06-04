@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f05933a1-7a6a-4a56-8c87-d02b49f7d5aa" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/static/images/background-min.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/app.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/errors.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/errors.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Добавление расписания.py" beforeDir="false" afterPath="$PROJECT_DIR$/Добавление расписания.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,9 +47,9 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Serg\PycharmProjects\El_journal\app\static\images" />
       <recent name="C:\Users\Serg\PycharmProjects\El_journal" />
       <recent name="C:\Users\Serg\PycharmProjects\El_journal\app\static\js" />
-      <recent name="C:\Users\Serg\PycharmProjects\El_journal\app\static\images" />
       <recent name="C:\Users\Serg\PycharmProjects\El_journal\app\static\css" />
       <recent name="C:\Users\Serg\PycharmProjects\El_journal\app" />
     </key>
@@ -224,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591290807692</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Import project">
+      <created>1591291393146</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1591291393146</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -259,10 +262,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="389" y="196" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1280.680@0.0.1280.680" timestamp="1591286218876" />
-    <state x="270" y="0" width="918" height="679" key="CommitChangelistDialog2" timestamp="1591290806919">
+    <state x="270" y="0" width="918" height="679" key="CommitChangelistDialog2" timestamp="1591291391734">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="270" y="0" width="918" height="679" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1591290806919" />
+    <state x="270" y="0" width="918" height="679" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1591291391734" />
     <state x="121" y="50" width="1024" height="572" key="DiffContextDialog" timestamp="1591285915606">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -319,10 +322,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="257" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1591286006527" />
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1591290815994">
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1591291405005">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1591290815994" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1591291405005" />
     <state x="449" y="75" key="VcsDiffUtil.ChangesDialog" timestamp="1591272435772">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -339,10 +342,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="300" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1280.680@0.0.1280.680" timestamp="1586536532741" />
-    <state x="450" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591291384309">
+    <state x="450" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591294339557">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="450" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1591291384309" />
+    <state x="450" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1591294339557" />
     <state x="361" y="0" width="739" height="680" key="find.popup" timestamp="1591283586189">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

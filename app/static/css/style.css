@@ -154,7 +154,7 @@ header .button6:hover{ background: #d4a990;}
 header .button_ras:hover{ background: #d4a990;}
 
 body {
-    background: url("/static/images/background.png");
+    background: url("/static/images/background-min.png");
     color:#fff ;
     background-attachment: scroll; /* Фон страницы  */
     background-repeat: repeat-x; /* Изображение повторяется по горизонтали */
