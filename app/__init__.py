@@ -16,7 +16,7 @@ def generic_keys():
     n = 12
     s = ''
     for _ in range(n):
-        s += chr(random.randint(33,126))
+        s += chr(random.randint(33, 126))
     return s
 
 

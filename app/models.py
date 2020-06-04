@@ -23,7 +23,9 @@ class User(UserMixin, db.Model):
         return 'https://www.gravatar.com/avatar/{}?d=mp&s={}'.format(digest, size)
 
     def __repr__(self):
-        return '<User {}, {}, {}, {}, {}, {}, {}, {}, {}>'.format(self.id, self.priority, self.name, self.surname, self.email, self.phone, self.groups, self.about_me, self.last_seen)
+        return '<User {}, {}, {}, {}, {}, {}, {}, {}, {}>'.format(self.id, self.priority, self.name, self.surname,
+                                                                  self.email, self.phone, self.groups, self.about_me,
+                                                                  self.last_seen)
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -60,5 +62,3 @@ class Schedule(db.Model):
 
     def __repr__(self):
         return '{}, {}'.format(self.date, self.prepod_id)
-
-

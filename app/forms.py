@@ -49,7 +49,3 @@ class LoginForm(FlaskForm):
 class HomeAss(FlaskForm):
     data = TextAreaField(validators=[Length(min=0, max=140)])
     submit = SubmitField('Принять')
-
-
-
-

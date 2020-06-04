@@ -25,7 +25,7 @@ def login():
         user = User.query.filter_by(email=form.nick.data).first() or User.query.filter_by(phone=form.nick.data).first()
         if user is None or not user.check_password(form.password.data):
             flash('Неверный логин или пароль')
-            return  redirect(url_for('login'))
+            return redirect(url_for('login'))
         login_user(user, remember=form.remember_me.data)
         flash('Выполнен вход с пользователя ={}, запомпнить меня={}'.format(form.nick.data, form.remember_me.data))
         next_page = request.args.get('next')
@@ -114,7 +114,7 @@ def groups():
         g = set()
         zan = Schedule.query.filter(
             and_(Schedule.prepod_id == current_user.id,
-                 now-timedelta(weeks=2) <= Schedule.date, Schedule.date <= now)).all()
+                 now - timedelta(weeks=2) <= Schedule.date, Schedule.date <= now)).all()
         for i in zan:
             g.update(i.groups.split(', '))
 
@@ -130,10 +130,12 @@ def grades(group):
         students_of_group = User.query.filter_by(groups=group).all()
         dz_now = None
         now = datetime.combine(datetime.now().date(), time(0, 0))
-        dz = list(filter(lambda x: group in x.groups, Schedule.query.filter_by(prepod_id=current_user.id).filter(and_(now <= Schedule.date, Schedule.date < (now + timedelta(weeks=2)))).all()))
+        dz = list(filter(lambda x: group in x.groups, Schedule.query.filter_by(prepod_id=current_user.id).filter(
+            and_(now <= Schedule.date, Schedule.date < (now + timedelta(weeks=2)))).all()))
         if dz:
             dz_now = dz[0].dz
-        zan = sorted(filter(lambda x: group in x.groups, Schedule.query.filter_by(prepod_id=current_user.id).all()), key=lambda x: x.date)
+        zan = sorted(filter(lambda x: group in x.groups, Schedule.query.filter_by(prepod_id=current_user.id).all()),
+                     key=lambda x: x.date)
         d = dict(zip(map(lambda x: x.id, students_of_group),
                      (dict(zip(map(lambda x: x.date.date(), zan),
                                map(lambda x: {}, zan))) for _ in range(len(students_of_group)))))
@@ -151,7 +153,8 @@ def grades(group):
                 if j.user_id in d:
                     d[j.user_id][j.date][i.date.time()][1] = j.grade
 
-        return render_template('grades.html', title='Список студентов', group=group, students=students_of_group, zan=zan, grades=d, dz_now=dz_now)
+        return render_template('grades.html', title='Список студентов', group=group, students=students_of_group,
+                               zan=zan, grades=d, dz_now=dz_now)
     else:
         return redirect(url_for('journal'))
 
@@ -218,11 +221,13 @@ def schedule_stud(cur_week):
     if current_user.priority == 'Студент':
         cur_week = check_date(cur_week)
         dates = cur_week - timedelta(days=cur_week.weekday())
-        d = dict(zip(range(5),('Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница')))
+        d = dict(zip(range(5), ('Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница')))
         list_zan = []
         for i in range(5):
             zan = filter(lambda x: current_user.groups in x.groups,
-                                Schedule.query.filter(and_(dates < Schedule.date, Schedule.date < dates + timedelta(days=1))).order_by(Schedule.date).all())
+                         Schedule.query.filter(
+                             and_(dates < Schedule.date, Schedule.date < dates + timedelta(days=1))).order_by(
+                             Schedule.date).all())
             attr = [dates.strftime('%d.%m'), d[dates.weekday()]]
             for j in zan:
                 prepod = User.query.filter_by(id=j.prepod_id).first()
@@ -236,7 +241,8 @@ def schedule_stud(cur_week):
                              j.groups, j.dz, grade, comment])
             list_zan.append(attr)
             dates += timedelta(days=1)
-        return render_template('schedule_stud.html', list_zan=list_zan, go_next=cur_week + timedelta(weeks=1), go_back=cur_week - timedelta(weeks=1))
+        return render_template('schedule_stud.html', list_zan=list_zan, go_next=cur_week + timedelta(weeks=1),
+                               go_back=cur_week - timedelta(weeks=1))
     else:
         return redirect(url_for('journal'))
 
@@ -255,9 +261,11 @@ def schedule_prepod(cur_week):
             attr = [dates.strftime('%d.%m'), d[dates.weekday()]]
             for j in zan:
                 attr.append([j.zan_type, j.groups,
-                             f'{j.date.time().strftime("%H:%M")} - {(j.date + timedelta(minutes=90)).time().strftime("%H:%M")}', j.dz if j.dz else 'Пусто'])
+                             f'{j.date.time().strftime("%H:%M")} - {(j.date + timedelta(minutes=90)).time().strftime("%H:%M")}',
+                             j.dz if j.dz else 'Пусто'])
             list_zan.append(attr)
             dates += timedelta(days=1)
-        return render_template('schedule_prepod.html', zan=list_zan, go_next=cur_week + timedelta(weeks=1), go_back=cur_week - timedelta(weeks=1))
+        return render_template('schedule_prepod.html', zan=list_zan, go_next=cur_week + timedelta(weeks=1),
+                               go_back=cur_week - timedelta(weeks=1))
     else:
         return redirect(url_for('journal'))

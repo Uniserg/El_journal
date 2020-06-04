@@ -2,7 +2,6 @@ from app.models import Schedule, User
 from app import db
 from datetime import datetime, timedelta
 
-
 n = 2
 s = 'расписание ПИ19-'
 for i in range(3, 6):
