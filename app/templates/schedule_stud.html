@@ -5,14 +5,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Расписание</title>
-<!--    <script type=text/javascript src="{{ url_for('static', filename='js/jquery-3.5.1.js') }}"></script>-->
 </head>
 <body>
 <h1>Расписание</h1>
-<!--<div class="schedule" style="font-size: 25px;">-->
-<!--    <a class="butt_win" id="go_back" href="{{url_for('schedule_stud', cur_week=go_back)}}">Назад</a>-->
-<!--    <a class="butt_win" id="go_next" href="{{url_for('schedule_stud', cur_week=go_next)}}" style="position:absolute; top:203px;right:10px;">Вперед</a>-->
-<!--</div><br> <br>-->
+
 <div class="schedule">
     <a class="butt_win" id="go_back" href="{{url_for('schedule_stud', cur_week=go_back)}}" style="position:absolute; top:203px;left:10px;">Назад</a>
     <a class="butt_win" id="go_next" href="{{url_for('schedule_stud', cur_week=go_next)}}" style="position:absolute; top:203px;right:10px;">Вперед</a>
