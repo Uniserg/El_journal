@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='images/icon.svg') }}"/>
+        {% if title %}
+        <title>{{ title }} - Электронный журнал</title>
+        {% else %}
+        <title>Электронный журнал</title>
+        {% endif %}
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+<!--        header .knopka:hover { background: rgb(49, 255, 68); } /* при наведении курсора мышки */-->
+<!--header .knopka:active { background: rgb(150, 255, 13); } /* при нажатии */-->
+    </head>
+    {% if current_user.is_authenticated %}
+    <div style="font-family:arial;">
+        Электронный журнал:
+    <header>
+        {% if current_user.priority == "Преподаватель" %}
+            <a href="{{ url_for('groups') }}" class="button5"> Группы </a>
+        {% endif %}
+        {% if current_user.priority == "Преподаватель" %}
+            <a class="button_ras" href="{{url_for('schedule_prepod', cur_week='cur_week')}}">Расписание</a>
+        {% else %}
+            <a class="button_ras" href="{{url_for('schedule_stud', cur_week='cur_week')}}">Расписание</a>
+        {%endif%}
+        <a href="{{ url_for('user', name=current_user.name, surname=current_user.surname, id=current_user.id) }}" class="button4">Профиль</a>
+        <a href="{{ url_for('logout') }}" class="button6">Выйти</a>
+    </header>
+    </div>
+    {% endif %}
+    <body>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </body>
+</html>

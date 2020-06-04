@@ -1,0 +1,162 @@
+body{background-color: azure}
+
+h1{
+    color: #5e68bd;
+    text-align: center;
+    font-size: 70px;
+    font-family: arial;}
+
+/*#e5b855*/
+h2{
+    color:#d4a990;
+    font-family: calibri;
+    text-align: center;
+
+}
+
+td, table, tr, .schedule {
+        border: 2px solid #d4a990;
+        color:black; font-family:
+        calibri;
+        background:white;
+    }
+
+.schedule{
+    margin-top: 5%;
+    border: 5px solid #d4a990;
+    margin: 0 auto;
+}
+
+.butt_win{
+        margin-top:20px;
+        text-align:center;
+        width: 200px;
+        user-select: none;
+        background:#ed1c24;
+        border-radius: 50px;
+        color:white;
+        text-decoration: none;
+        user-select: none;
+        outline: none;
+        font-size: 40px;
+        }
+
+.butt_win:hover{background:#ff3e3e;}
+
+p {
+    color: black;
+    padding: 10px 10px;
+    width: 300px;
+    background: #DFDFD8;
+    font-family: consolas;
+    border: 5px solid #d4a990;
+    border-radius: 50px;
+
+}
+
+.window{
+    display: none;
+    position:absolute;
+    width:300px;
+    top: 50%;
+    left:50%;
+    font-size:26px;
+    margin-left: -100px;
+    border: 5px solid #ed1c24;
+    padding: 50px 20px;
+    background:white;
+    color:#ed1c24;
+    font-family:calibri;
+<!--    background:rgba(0,0,0,.7);-->
+<!--    z-index:100;-->}
+
+header {
+    display: inline;
+    width: 100%;
+}
+header .title{
+    color: #F08080; /* цвет текста */
+    font-family: arial;
+    size: cover
+}
+header .button, .button2, .button3, .button4, .button5, .button6, .button_ras {
+    text-decoration: none; /* убирать подчёркивание у ссылок */
+    user-select: none; /* убирать выделение текста */
+/*    background: #D2B48C; *//* фон кнопки */
+    outline: none; /* убирать контур в Mozilla */
+    display: inline-grid;
+    font-size: 30px;
+    font-family: arial; /* шрифт*/
+    align-text: center;
+    padding: 10px 10px;
+    border-radius: 50px;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    }
+
+header .button{
+    margin-top: 35px;
+    color: white;
+    background: #d4a990;
+    width: 300px;
+    margin-right: 50px;
+    margin-left: 200px;
+/*    border: 5px solid #696969;*/
+}
+
+header .button2{
+color: black;
+background: white;
+width: 100px;
+font-size: 14px;
+/*border: 5px solid #EC8D9A;*/
+
+}
+header .button3{
+    margin: 20px;
+    color: white;
+    background: #666666;
+    width: 200px;
+    font-size: 20px;
+
+}
+
+header .button4, .button5, .button6, .button_ras{
+    color: white;
+    font-size: 14px;
+    padding: 5px 5px;
+
+}
+header .button4{background: #ffcd43;}
+header .button5{ background: #4a8af4;}
+header .button6{ background: #dd4f42;}
+header .button_ras{background:#21A465;}
+
+
+/*header .button:hover{ background: #00FA9A; } *//* при наведении курсора мышки *//*
+header .button:active { background: #F08080; } *//* при нажатии */
+/*#7EE0B8;*/
+/*#62ССA3;*/
+
+header .button:hover{ background: #62CCA3} /* при наведении курсора мышки */
+header .button:active { background: #EC8D9A;} /* при нажатии */
+/*#48AF87*/
+header .button2:hover{ background: #00FA9A; } /* при наведении курсора мышки */
+header .button2:active { background: #F08080; } /* при нажатии */
+
+header .button3:hover{ background: #deaeba; } /* при наведении курсора мышки */
+header .button3:active { background: #F08080; } /* при нажатии */
+
+header .button4:hover{ background: #d4a990;} /* при наведении курсора мышки */
+header .button5:hover{ background: #d4a990; } /* при наведении курсора мышки */
+header .button6:hover{ background: #d4a990;}
+header .button_ras:hover{ background: #d4a990;}
+
+body {
+    background: url("/static/images/background.png");
+    color:#fff ;
+    background-attachment: scroll; /* Фон страницы  */
+    background-repeat: repeat-x; /* Изображение повторяется по горизонтали */
+    background-size:cover;
+}

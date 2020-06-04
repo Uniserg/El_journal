@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Группы</title>
+
+</head>
+<body>
+<h1>Группы</h1>
+
+
+{% for i in groups %}
+    <header>
+    <a href="{{ url_for('grades',group=i) }}" class="button3">{{i}}</a><br>
+    </header>
+{% endfor %}
+</body>
+</html>
+{% endblock %}

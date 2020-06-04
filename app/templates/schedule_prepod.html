@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+{% extends "base.html" %}
+{% block content%}
+<head>
+    <meta charset="UTF-8">
+    <title>Расписание</title>
+</head>
+<body>
+    <h1>Расписание</h1>
+    <div class="schedule" style="font-size: 25px;">
+        <a class="butt_win" id="go_back" href="{{url_for('schedule_prepod', cur_week=go_back)}}" style="position:absolute; top:203px;left:10px">Назад</a>
+        <a class="butt_win" id="go_next" href="{{url_for('schedule_prepod', cur_week=go_next)}}" style="position:absolute; top:203px;right:10px;">Вперед</a>
+        {% for att in zan %}
+            <h2>{{att[0]}} {{att[1]}}</h2>
+            <table width="100%">
+                    <tr>
+                        <td>Тип</td>
+                        <td>Группы</td>
+                        <td>Время</td>
+                        <td>ДЗ</td>
+                    </tr>
+                    {% for g in range(2, att|length )%}
+                        <tr>
+                            {% for h in att[g] %}
+
+                                <td>{{ h }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+            </table>
+        {%endfor%}
+    </div>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+</head>
+
+<body>
+   <h1>Привет, {{current_user.name}} {{current_user.surname}}</h1>
+</body>
+
+</html>
+{% endblock %}

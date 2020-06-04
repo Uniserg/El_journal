@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+{% extends "base.html" %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Список студентов</title>
+    <script type=text/javascript src="{{ url_for('static', filename='js/jquery-3.5.1.js') }}"></script>
+</head>
+
+<body>
+<h1 id="cur_group">{{group}}</h1>
+
+<div id="cur_dz" class="schedule" style="width:20%;position:absolute; top:50%; left:50%; padding: 50px; display:none ">
+    <h2 style="color: #ed1c24;margin-top:0px;margin-left: 0 auto;">Домашнее задание</h2>
+    <div id="dz_data" class="schedule" style="text-align:center; padding: 5%">
+
+        {% if dz_now == None %}
+            Пусто
+        {% else %}
+            {{ dz_now }}
+        {% endif %}
+    </div>
+
+    <div id="change_dz" class="butt_win" style="padding:5px;">Изменить</div>
+    <div id = windowinput_dz class="window" style="top:50%">
+        Изменить ДЗ:
+        <input type="text" id="input_dz">
+        <div id="save" class="butt_win">Сохранить</div>
+    </div>
+
+</div>
+
+<br>
+
+<div class="schedule">
+    <table style="background:white; width:100%">
+        <tr>
+            <td>№</td>
+            <td style="text-align: center;">ФИО</td>
+            {% for i in zan%}
+                <td style="text-align:center;" id="{{i.id}}" class="zan">
+                    {% if i.date.day < 10 %}0{%endif%}{{i.date.day}}.{% if i.date.month < 10 %}0{%endif%}{{i.date.month}}
+                    {{i.date.time().strftime('%H:%M')}}
+                    {{ i.zan_type[0] }}
+                </td>
+            {%endfor%}
+            <td>Всего</td>
+        </tr>
+
+        {% for i in grades%}
+        {% set summa = [0] %}
+        <tr id="{{loop.index}}">
+            {%set ix = loop.index-1 %}
+            <td>{{ix+1}}</td>
+            <td id="fio{{ix+1}}" style="width: 50%;">{{students[ix].surname}} {{students[ix].name}} {{students[ix].patronymic}}</td>
+            {% for k in grades[i]%}
+                {%set jx = loop.index - 1%}
+                {% for t in grades[i][k] %}
+                    <td style="text-align:center;" width="35px" id="{{ix+1}}d{{jx+1}}t{{loop.index}}" data-zan_id="{{grades[i][k][t][0]}}" data-student="{{students[ix].id}}" data-date="{{k}}" class="stud">
+                        {% set gr = grades[i][k][t][1] %}
+                        {% if gr %}
+                            {{gr}}
+                            {%if gr | float() or gr | int() %}
+                                {%if summa.append(summa.pop() + gr)%}{%endif%}
+                            {%endif%}
+                        {% endif %}
+                    </td>
+
+                {% endfor %}
+            {%endfor%}
+            <td style="text-align:center;" id="summa{{ix+1}}">{{summa.pop()}}</td>
+        </tr>
+        {%endfor%}
+    </table>
+
+</div>
+
+<div id="windowinput" class="window">
+        Дата:
+        <span id="date"></span> <br>
+        ФИО:
+        <span id="fio"> </span> <br>
+        Новая оценка:
+        <input type="text" id ='select' size="2px" autocomplete="off">
+        Комментарий:
+        <input type="text" id="comment" size="10px" autocomplete="off">
+        <div id='button' class="butt_win">Отправить</div>
+
+</div>
+<script type=text/javascript src="{{ url_for('static', filename='js/grade_input.js') }}"></script>
+</body>
+</html>
+{% endblock %}

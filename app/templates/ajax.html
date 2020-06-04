@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX вместе с Flask</title>
+    <script type=text/javascript src="{{ url_for('static', filename='js/jquery-3.5.1.js') }}"></script>
+</head>
+<body>
+    <script type=text/javascript src="{{ url_for('static', filename='js/test.js') }}"></script>
+    <form action="/get_len" method="post" name="form">
+        <label for="name">Введите текст:</label>
+        <input id="name" name="name" type="text">
+        <input type="button" value="Отправить" onclick="get_len();">
+    </form>
+    <div id="len"></div>
+</body>
+</html>
