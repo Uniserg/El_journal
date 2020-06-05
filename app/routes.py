@@ -144,9 +144,6 @@ def grades(group):
             for j in zan:
                 d[i.id][j.date.date()][j.date.time()] = [j.id, None]
 
-        for i in d:
-            print(i, d[i])
-
         for i in zan:
             gr = i.grades.all()
             for j in gr:
