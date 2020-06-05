@@ -52,7 +52,7 @@
         {% set summa = [0] %}
         <tr id="{{loop.index}}">
             {%set ix = loop.index-1 %}
-            <td>{{ix+1}}</td>
+            <td style="width:fixed;">{{ix+1}}</td>
             <td id="fio{{ix+1}}" style="width: 50%;">{{students[ix].surname}} {{students[ix].name}} {{students[ix].patronymic}}</td>
             {% for k in grades[i]%}
                 {%set jx = loop.index - 1%}

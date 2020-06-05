@@ -4,7 +4,7 @@ from app.forms import *
 from app.models import User, Grades, Schedule
 from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.urls import url_parse
-from datetime import time, datetime, timedelta
+from datetime import datetime, timedelta
 from sqlalchemy import and_
 
 
@@ -128,30 +128,18 @@ def groups():
 def grades(group):
     if current_user.priority == 'Преподаватель':
         students_of_group = User.query.filter_by(groups=group).all()
-        dz_now = None
-        now = datetime.combine(datetime.now().date(), time(0, 0))
-        dz = list(filter(lambda x: group in x.groups, Schedule.query.filter_by(prepod_id=current_user.id).filter(
-            and_(now <= Schedule.date, Schedule.date < (now + timedelta(weeks=2)))).all()))
-        if dz:
-            dz_now = dz[0].dz
-        zan = sorted(filter(lambda x: group in x.groups, Schedule.query.filter_by(prepod_id=current_user.id).all()),
-                     key=lambda x: x.date)
-        d = dict(zip(map(lambda x: x.id, students_of_group),
-                     (dict(zip(map(lambda x: x.date.date(), zan),
-                               map(lambda x: {}, zan))) for _ in range(len(students_of_group)))))
-
+        zan = list(filter(lambda x: group in x.groups, Schedule.query.filter_by(prepod_id=current_user.id).order_by(Schedule.date).all()))
+        d = dict(map(lambda x: (x.id, dict(map(lambda z: (z.date.date(), dict()), zan))), students_of_group))
         for i in students_of_group:
             for j in zan:
                 d[i.id][j.date.date()][j.date.time()] = [j.id, None]
-
         for i in zan:
             gr = i.grades.all()
             for j in gr:
                 if j.user_id in d:
                     d[j.user_id][j.date][i.date.time()][1] = j.grade
-
         return render_template('grades.html', title='Список студентов', group=group, students=students_of_group,
-                               zan=zan, grades=d, dz_now=dz_now)
+                               zan=zan, grades=d)
     else:
         return redirect(url_for('journal'))
 
